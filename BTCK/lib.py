@@ -29,9 +29,12 @@ def cameraCalib():
     # Đọc ảnh calib 
     images = './calib/5.jpg'
     img = cv2.imread(images)
+    # Kiểm tra kích thước ảnh để chuyển bức ảnh về nhỏ hơn. 
+    print(img.shape)
     # Sử dụng phần trung tâm của ảnh
     img = img[400:1050,100:750]
-    cv2.imwrite('./calib/in.jpg',img)
+    # cv2.imwrite('./calib/in.jpg',img)
+    # Nếu ảnh to quá cần giảm ảnh theo tỉ lệ nhất định. Ví dụ kích thước ảnh ban đầu là (2016, 1512, 3) --> (300, 400 ) do (x,y) bị đảo.
     # img = cv2.resize(img,(300,400))
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     
